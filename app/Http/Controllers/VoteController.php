@@ -15,8 +15,8 @@ class VoteController extends Controller
      */
     public function index()
     {
-        $polls = Poll::join('users', 'users.id', '=', 'polls.created_by')->get();
-        $pollUsers = Poll::join('users', 'users.id', '=', 'polls.created_by')->where('deadline', '>', date('Y-m-d H:i:s'))->get();
+        $polls = Poll::select('users.name', 'polls.id', 'polls.deadline', 'polls.description', 'polls.title')->join('users', 'users.id', '=', 'polls.created_by')->get();
+        $pollUsers = Poll::select('users.name', 'polls.id', 'polls.deadline', 'polls.description', 'polls.title')->join('users', 'users.id', '=', 'polls.created_by')->where('deadline', '>', date('Y-m-d H:i:s'))->get();
 
         return view('vote.index', compact('polls', 'pollUsers'));
     }

@@ -11,7 +11,7 @@
             <div class="card-header">
                 <h3>Selamat Datang {{ session('name') }}</h3>
             </div>
-            @if(session('role') !== 'admin')
+            @if(session('role') == 'admin')
             <div class="card-body">
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-poll">Add Vote</button>
             </div>

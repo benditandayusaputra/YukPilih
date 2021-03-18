@@ -13,6 +13,7 @@ class DashboardController extends Controller
      */
     public function index()
     {
+        // dd(session('role'));
         return view('dashboard.index');
     }
 

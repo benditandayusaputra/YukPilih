@@ -23,7 +23,7 @@
       <a href="#" class="h1"><b>Ganti Password</b></a>
     </div>
     <div class="card-body">
-      <p class="login-box-msg">Password anda masih default silahkan jika ingin mengganti password jika tidak bisa tekan tombol lanjut.</p>
+      <p class="login-box-msg">Password anda masih default silahkan jika ingin mengganti password jika tidak bisa tekan tombol lain kali.</p>
 
       @if(session('error'))
           <div class="alert alert-danger">{{ session('error') }}</div>
@@ -71,7 +71,7 @@
             <button type="submit" class="btn btn-primary btn-block">Submit</button>
           </div>
           <div class="col-12 mt-3">
-            <a href="{{ route('dashboard.index') }}" class="btn btn-primary btn-block">Lanjut</a>
+            <a href="{{ route('dashboard.index') }}" class="btn btn-info btn-block">Lain Kali</a>
           </div>
         </div>
       </form>

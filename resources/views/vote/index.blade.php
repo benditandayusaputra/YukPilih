@@ -20,26 +20,26 @@
                             <?php $choice = App\Models\Choice::where('poll_id', $poll->id)->get() ?>
                             <?php $voteCount = App\Models\Vote::join('polls', 'polls.id', '=', 'votes.poll_id')->where('poll_id', $poll->id)->get()->count() ?>
                             @if( $voteCount !== 0 )
-                            @foreach( $choice as $item )
-                            <?php $vote = App\Models\Vote::where('choice_id', $item->id)->get(); ?>
-                            @if( $vote->count() !== 0 )
-                            <?php $total = $vote->count() / $voteCount * 100; ?>
-                            @else 
-                            <?php $total = 0 ?>
-                            @endif
-                            <div class="col-6 pt-1">
-                                <div class="progress">
-                                    <div class="progress-bar" style="width: {{ $total }}%"></div>
+                                @foreach( $choice as $item )
+                                <?php $vote = App\Models\Vote::where('choice_id', $item->id)->get(); ?>
+                                @if( $vote->count() !== 0 )
+                                <?php $total = $vote->count() / $voteCount * 100; ?>
+                                @else 
+                                <?php $total = 0 ?>
+                                @endif
+                                <div class="col-6 pt-1">
+                                    <div class="progress">
+                                        <div class="progress-bar" style="width: {{ $total }}%"></div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-6">
-                                <span class="progress-description">
-                                    {{ $item->choice }}
-                                    <br>
-                                    {{ $total }} %
-                                </span> 
-                            </div>
-                            @endforeach
+                                <div class="col-6">
+                                    <span class="progress-description">
+                                        {{ $item->choice }}
+                                        <br>
+                                        {{ $total }} %
+                                    </span> 
+                                </div>
+                                @endforeach
                             @else
                                 <h2>Belum Ada Yang Memilih</h2>
                             @endif

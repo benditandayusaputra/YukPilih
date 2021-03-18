@@ -75,7 +75,7 @@
                             <select class="form-control" name="division_id" id="division_id">
                                 <option value="">-- Pilih Divisi --</option>
                                 @foreach($divisions as $division)
-                                <option value="{{ $division }}">{{ $division->name }}</option>
+                                <option value="{{ $division->id }}">{{ $division->name }}</option>
                                 @endforeach
                             </select>
                             @error('division_id')
